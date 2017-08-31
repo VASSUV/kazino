@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="view_ids">
+        <item>@id/num_0</item>
+        <item>@id/num_1</item>
+        <item>@id/num_2</item>
+        <item>@id/num_3</item>
+        <item>@id/num_4</item>
+        <item>@id/num_5</item>
+        <item>@id/num_6</item>
+        <item>@id/num_7</item>
+        <item>@id/num_8</item>
+        <item>@id/num_9</item>
+        <item>@id/num_10</item>
+        <item>@id/num_11</item>
+        <item>@id/num_12</item>
+        <item>@id/num_13</item>
+        <item>@id/num_14</item>
+        <item>@id/num_15</item>
+        <item>@id/num_16</item>
+        <item>@id/num_17</item>
+        <item>@id/num_18</item>
+        <item>@id/num_19</item>
+        <item>@id/num_20</item>
+        <item>@id/num_21</item>
+        <item>@id/num_22</item>
+        <item>@id/num_23</item>
+        <item>@id/num_24</item>
+        <item>@id/num_25</item>
+        <item>@id/num_26</item>
+        <item>@id/num_27</item>
+        <item>@id/num_28</item>
+        <item>@id/num_29</item>
+        <item>@id/num_30</item>
+        <item>@id/num_31</item>
+        <item>@id/num_32</item>
+        <item>@id/num_33</item>
+        <item>@id/num_34</item>
+        <item>@id/num_35</item>
+        <item>@id/num_36</item>
+    </integer-array>
+</resources>

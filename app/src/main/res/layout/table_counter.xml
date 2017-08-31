@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="25dp"
+        android:textSize="32sp"
+        android:text="Настройки"/>
+
+
+    <TextView
+        android:id="@+id/seekBarName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:text="Параметр для расчета холодных чисел, от 37 до 100"/>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:max="95"
+        android:progress="37"
+        app:layout_constraintEnd_toEndOf="@+id/seekBarName"
+        app:layout_constraintStart_toStartOf="@+id/seekBarName"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarName"/>
+
+    <TextView
+        android:id="@+id/seekBarProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/seekBarName"
+        app:layout_constraintStart_toStartOf="@+id/seekBarName"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"/>
+
+</android.support.constraint.ConstraintLayout>

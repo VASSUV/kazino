@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="height_cell">60dp</dimen>
+    <dimen name="width_cell">40dp</dimen>
+    <dimen name="double_width_cell">80dp</dimen>
+    <dimen name="quadro_width_cell">160dp</dimen>
+    <dimen name="triple_height_cell">180dp</dimen>
+    <dimen name="width_table">600dp</dimen>
+    <dimen name="height_table">300dp</dimen>
+</resources>
