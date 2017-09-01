@@ -48,8 +48,9 @@ class FullscreenActivity : AppCompatActivity() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onStop() {
+        super.onStop()
+
         if(!SharedData.IS_SAVE_LOG.getBoolean()) {
             SharedData.LOG.saveString(Counter.list.joinToString(separator = ";"))
         }

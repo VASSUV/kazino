@@ -1,5 +1,6 @@
 package ru.vassuv.kazino
 
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -94,8 +95,8 @@ class BasePagerFragment : Fragment() {
         num_even.text = itemText("Ч", Counter.countEven().in0tes())
         num_not_even.text = itemText("Н", Counter.countNotEven().in0tes())
 
-        num_red.text = itemTextRed("Красные", Counter.countColor(Counter.RED).in0tes())
-        num_black.text = itemTextBlack("Черные", Counter.countColor(Counter.BLACK).in0tes())
+        num_red.text = itemText("Красн.", Counter.countColor(Counter.RED).in0tes(), Color.RED)
+        num_black.text = itemText("Черн.", Counter.countColor(Counter.BLACK).in0tes(), Color.BLACK)
 
         recyclerView.adapter.notifyDataSetChanged()
         recyclerView.smoothScrollToPosition(0)
@@ -133,54 +134,37 @@ class BasePagerFragment : Fragment() {
                     .badgeColor(Color.WHITE)
                     .textColor(Color.BLACK)
                     .number(0)
-                    .textSize(45f)
+                    .textSize(18.0f.spToPixels())
                     .build()
                     .toSpannable())
-            for (i in 1..36) {
-                list.add(BadgeDrawable.Builder()
+            (1..36).mapTo(list) {
+                BadgeDrawable.Builder()
                         .type(BadgeDrawable.TYPE_NUMBER)
-                        .badgeColor(Counter.getColor(i))
+                        .badgeColor(Counter.getColor(it))
                         .textColor(Color.WHITE)
-                        .number(i)
-                        .textSize(45f)
+                        .number(it)
+                        .textSize(18.0f.spToPixels())
                         .build()
-                        .toSpannable())
+                        .toSpannable()
             }
             return list
         }
 
-        fun itemText(s: String = "", s2: String = "") = SpannableString(TextUtils.concat(
+        fun itemText(s: String = "", s2: String = "", textColor: Int = Color.WHITE) = SpannableString(TextUtils.concat(
                 BadgeDrawable.Builder()
                         .type(BadgeDrawable.TYPE_ONLY_ONE_TEXT)
                         .badgeColor(Color.TRANSPARENT)
-                        .textColor(Color.WHITE)
+                        .textColor(textColor)
                         .text1(s)
-                        .textSize(45f)
-                        .build()
-                        .toSpannable(), s2))
-
-        fun itemTextRed(s: String = "", s2: String = "") = SpannableString(TextUtils.concat(
-                BadgeDrawable.Builder()
-                        .type(BadgeDrawable.TYPE_ONLY_ONE_TEXT)
-                        .badgeColor(Color.TRANSPARENT)
-                        .textColor(Color.RED)
-                        .text1(s)
-                        .textSize(45f)
-                        .build()
-                        .toSpannable(), s2))
-
-        fun itemTextBlack(s: String = "", s2: String = "") = SpannableString(TextUtils.concat(
-                BadgeDrawable.Builder()
-                        .type(BadgeDrawable.TYPE_ONLY_ONE_TEXT)
-                        .badgeColor(Color.TRANSPARENT)
-                        .textColor(Color.BLACK)
-                        .text1(s)
-                        .textSize(45f)
+                        .textSize(18.0f.spToPixels())
                         .build()
                         .toSpannable(), s2))
 
         fun numberItemText(i: Int, s: CharSequence = "") = SpannableString(TextUtils.concat(numSpannableArray[i], s))
+
+        fun  Float.spToPixels() = this * Resources.getSystem().displayMetrics.scaledDensity + 0.5f
     }
+
 
     class NumAdapter : RecyclerView.Adapter<NumAdapter.Holder>() {
         override fun onBindViewHolder(holder: Holder, position: Int) {
