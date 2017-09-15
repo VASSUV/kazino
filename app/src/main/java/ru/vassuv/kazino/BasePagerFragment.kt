@@ -278,10 +278,10 @@ class BasePagerFragment : Fragment() {
         override fun onBindViewHolder(holder: Holder, position: Int) {
             holder.item.setBackgroundColor(if (position == 0) Color.GRAY else Color.parseColor("#737373"))
             val num = Counter.list[Counter.list.size - position - 1]
-            if (Counter.listState[position] != R.drawable.button) {
-                val drawable = holder.item.context.resources.getDrawable(Counter.listState[position])
-                holder.top.setImageDrawable(drawable)
-            } else holder.top.setImageDrawable(null)
+//            if (Counter.listState[position] != R.drawable.button) {
+//                val drawable = holder.item.context.resources.getDrawable(Counter.listState[position])
+//                holder.top.setImageDrawable(drawable)
+//            } else holder.top.setImageDrawable(null)
             when (num) {
                 0 -> {
                     holder.textView.text = numSpannableArray[num]
@@ -297,7 +297,7 @@ class BasePagerFragment : Fragment() {
             }
             val i35 = Counter.fieldList2[position] -  (Counter.fieldList2.getOrNull(position + 1) ?: 0)
 
-            holder.textView1.text = if (i35 > 0) i35.toString() else ""
+//            holder.textView1.text = if (i35 > 0) i35.toString() else ""
             holder.textView3.text = (Counter.list.size - position).toString()
         }
 
@@ -308,9 +308,9 @@ class BasePagerFragment : Fragment() {
 
         class Holder(val item: View) : RecyclerView.ViewHolder(item) {
             val textView: TextView = item.find<TextView>(R.id.textView)
-            val textView1: TextView = item.find<TextView>(R.id.textView2)
+//            val textView1: TextView = item.find<TextView>(R.id.textView2)
             val textView3: TextView = item.find<TextView>(R.id.textView3)
-            val top: ImageView = item.find<ImageView>(R.id.topIndicator)
+//            val top: ImageView = item.find<ImageView>(R.id.topIndicator)
         }
     }
 }

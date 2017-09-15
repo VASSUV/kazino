@@ -181,6 +181,7 @@ class SettingsPagerFragment : Fragment() {
             }
             Thread.sleep(1000)
             pd.dismiss()
+            updateTable()
         }
     }
 
