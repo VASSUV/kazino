@@ -1,1 +1,4 @@
-include ':app'
+include ':app', ':sample', ':library', 'dirchooser', ':chooseDir'
+project(':sample').projectDir = new File('Android-DirectoryChooser/sample')
+project(':library').projectDir = new File('Android-DirectoryChooser/library')
+project(':chooseDir').projectDir = new File('library')

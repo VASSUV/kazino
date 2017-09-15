@@ -5,24 +5,24 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#737373"
-        app:layout_constraintBottom_toBottomOf="@+id/fab"
-        app:layout_constraintLeft_toLeftOf="@+id/fab"
-        app:layout_constraintRight_toRightOf="@+id/fab"
-        app:layout_constraintTop_toTopOf="@+id/fab" />
-
     <TextView
         android:id="@+id/countIter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="2dp"
         android:text="Ход: "
         android:textColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/fab_box"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="#737373"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -30,36 +30,31 @@
         android:layout_height="wrap_content"
         android:minHeight="40dp"
         android:minWidth="40dp"
+        android:layout_margin="12dp"
         android:src="@drawable/ic_undo_black_24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabReset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:minHeight="40dp"
-        android:minWidth="40dp"
-        android:src="@drawable/ic_clear_white_24dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/fab_box"
+        app:layout_constraintTop_toTopOf="@+id/fab_box"
+        app:layout_constraintLeft_toLeftOf="@+id/fab_box"
+        app:layout_constraintRight_toRightOf="@+id/fab_box" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#737373"
-        app:layout_constraintBottom_toBottomOf="@id/fab"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/fab"
-        app:layout_constraintTop_toTopOf="@id/fab" />
+        app:layout_constraintRight_toLeftOf="@id/fab_box"
+        app:layout_constraintTop_toTopOf="@id/fab_box" />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:padding="26dp"
-        app:layout_constraintBottom_toTopOf="@id/fab"
+        android:paddingTop="26dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="2dp"
+        app:layout_constraintBottom_toTopOf="@id/fab_box"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/countIter">
@@ -373,5 +368,41 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/field_1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout2"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/field_2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/field_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout2" />
+
+        <TextView
+            android:id="@+id/field_3"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout5" />
+
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

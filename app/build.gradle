@@ -61,9 +61,10 @@ dependencies {
     compile "org.jetbrains.anko:anko-sqlite:$anko_version"
     compile "org.jetbrains.anko:anko-coroutines:$anko_version"
 
-    implementation 'com.google.android.gms:play-services-ads:11.2.0'
+    implementation 'com.google.android.gms:play-services-ads:11.2.2'
 
     compile 'com.github.nekocode:Badge:2.0'
+    compile 'com.github.codekidX:storage-chooser:2.0.1'
 }
 
 kapt {

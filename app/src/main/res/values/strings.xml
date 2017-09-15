@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">R37</string>
+    <string name="check_cold">Показывать холодные числа (более %d невыпадений)</string>
+    <string name="check_hot">Показывать горячие числа (3 и более выпадений за 50 ходов)</string>
 </resources>

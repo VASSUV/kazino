@@ -1,6 +1,7 @@
 package ru.vassuv.kazino
 
 import android.os.Bundle
+import android.os.Handler
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
@@ -30,8 +31,10 @@ class FullscreenActivity : AppCompatActivity() {
 
         pager.setOnPageChangeListener(object : OnPageChangeListener {
 
-            override fun onPageSelected(position: Int) = when (position) {
-                1 -> baseFragment.setViews()
+            override fun onPageSelected(position: Int): Unit = when (position) {
+                0 -> {
+//                   val b = Handler().postDelayed(baseFragment::setViews, 1000)
+                }
                 else -> settingsFragment.setViews()
             }
 
@@ -40,12 +43,6 @@ class FullscreenActivity : AppCompatActivity() {
             override fun onPageScrollStateChanged(state: Int) = Unit
         })
 
-        if(!SharedData.IS_SAVE_LOG.getBoolean()) {
-            Counter.list = ArrayList(split(SharedData.LOG.getString(), ";")
-                    .map { it.toIntOrNull() }
-                    .filter { it != null }
-                    .map { it as Int })
-        }
     }
 
     override fun onStop() {

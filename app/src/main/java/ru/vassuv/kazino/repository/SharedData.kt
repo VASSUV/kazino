@@ -6,7 +6,8 @@ import ru.vassuv.kazino.App
 import ru.vassuv.kazino.FullscreenActivity
 
 enum class SharedData {
-    LOG, IS_SAVE_LOG,
+    LOG, LOG_STATE, IS_SAVE_LOG, LOG_FIELD1, LOG_FIELD2,
+    CHECK_COLD, CHECK_HOT,
     COUNT_NOT_P;
 
     private val instance: SharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(App.context) }
@@ -22,5 +23,4 @@ enum class SharedData {
     fun saveLong(value: Long) = instance.edit().putLong(name, value).apply()
 
     fun remove() = instance.edit().remove(name).apply()
-
 }
