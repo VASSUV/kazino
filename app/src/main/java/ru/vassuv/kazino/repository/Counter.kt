@@ -36,7 +36,7 @@ object Counter {
 
     fun add(num: Int) {
         list.add(num)
-        listState.add(0,0)
+        listState.add(0,R.drawable.button)
         reCount(true, num)
         listState[0] = drawableResIdNums[num]
     }
@@ -49,7 +49,7 @@ object Counter {
 
         val arrayIndex = Array(37, { ArrayList<Int>() })
 
-        val countP = minOf(countNotP, list.size - 1)
+        val countP = minOf(maxOf(countNotP, COUNT_HOT), list.size - 1)
         val sizeList = list.size - 1
         for (i in 0..countP) {
             arrayIndex[list[sizeList - i]].add(i)
@@ -63,9 +63,26 @@ object Counter {
                     else
                         R.drawable.button
                 }
-                else -> {
+                1,2 -> {
                     i1 = arrayList[0]
                     if (isViewCold && i1 > countNotP)
+                        R.drawable.blue_button
+                    else
+                        R.drawable.button
+                }
+                else -> {
+                    i1 = arrayList[0]
+                    i2 = arrayList[1]
+                    i3 = arrayList[2]
+                    if (isViewHot && i3 < COUNT_HOT) {
+                        if (i == num && listState[i2] == R.drawable.yellow_button && i2 - i1 < countP) {
+                            countResetYellow++
+//                            println ("YELLOW{$i1,$i2,$i3}: $i на ${list.size} ходу")
+                        }
+                        R.drawable.orange_button
+//                    } else if (i1 < COUNT_P && i2 < i1 + COUNT_P && i3 > i1 + COUNT_P) {
+//                        R.drawable.yellow_button
+                    } else if (isViewCold && i1 > countNotP)
                         R.drawable.blue_button
                     else
                         R.drawable.button

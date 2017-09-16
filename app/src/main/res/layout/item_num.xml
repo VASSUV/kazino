@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="25dp"
     android:layout_height="match_parent"
+    android:maxWidth="25dp"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
-    <!--<ImageView-->
-        <!--android:id="@+id/topIndicator"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="8dp"/>-->
+    <ImageView
+        android:id="@+id/topIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"/>
 
     <TextView
         android:id="@+id/textView"
@@ -23,10 +25,10 @@
         <!--android:textSize="12sp"/>-->
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="match_parent"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textSize="12sp"
-        android:scaleX="0.7"
-        android:scaleY="0.7"/>
+        android:scaleX="0.6"
+        android:scaleY="0.6"/>
 </LinearLayout>

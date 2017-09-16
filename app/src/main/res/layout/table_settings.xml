@@ -82,33 +82,33 @@
             app:layout_constraintStart_toStartOf="@+id/seekBarName"
             app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
+        <CheckBox
+            android:id="@+id/checkHot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:text="@string/check_hot"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seekBarProgress"
+            app:layout_constraintBottom_toBottomOf="parent"/>
         <!--<CheckBox-->
-            <!--android:id="@+id/checkCold"-->
+            <!--android:id="@+id/check2_37"-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->
             <!--android:layout_marginEnd="32dp"-->
             <!--android:layout_marginStart="32dp"-->
             <!--android:layout_marginTop="8dp"-->
             <!--android:background="?attr/selectableItemBackground"-->
-            <!--android:text="@string/check_cold"-->
+            <!--android:text="@string/check_2_37"-->
             <!--app:layout_constraintLeft_toLeftOf="parent"-->
             <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@id/seekBarProgress" />-->
+            <!--app:layout_constraintTop_toBottomOf="@id/checkHot" />-->
 
-        <!--<CheckBox-->
-            <!--android:id="@+id/checkHot"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginEnd="32dp"-->
-            <!--android:layout_marginStart="32dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:layout_marginBottom="16dp"-->
-            <!--android:background="?attr/selectableItemBackground"-->
-            <!--android:text="@string/check_hot"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"-->
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@id/checkCold"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"/>-->
 
 
     </android.support.constraint.ConstraintLayout>
