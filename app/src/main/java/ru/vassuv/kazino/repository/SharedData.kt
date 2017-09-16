@@ -7,7 +7,7 @@ import ru.vassuv.kazino.FullscreenActivity
 
 enum class SharedData {
     LOG, LOG_STATE, IS_SAVE_LOG, LOG_FIELD1, LOG_FIELD2,
-    CHECK_COLD, CHECK_HOT,
+    CHECK_2_37, CHECK_HOT,
     COUNT_NOT_P;
 
     private val instance: SharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(App.context) }

@@ -1,12 +1,9 @@
 package ru.vassuv.kazino
 
-import android.app.Activity.RESULT_OK
 import android.app.ProgressDialog
-import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.Nullable
 import android.support.v4.app.Fragment
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +13,6 @@ import android.widget.SeekBar
 import android.widget.TextView
 import com.codekidlabs.storagechooser.Content
 import com.codekidlabs.storagechooser.StorageChooser
-import kotlinx.android.synthetic.main.table_base.*
 import kotlinx.android.synthetic.main.table_settings.*
 import org.jetbrains.anko.find
 import ru.vassuv.kazino.repository.Counter
@@ -48,7 +44,7 @@ class SettingsPagerFragment : Fragment() {
         val view = inflater?.inflate(R.layout.table_settings, null) as View
         val seekBar = view.find<SeekBar>(R.id.seekBar)
         val seekBarProgress = view.find<TextView>(R.id.seekBarProgress)
-//        val checkCold = view.find<CheckBox>(R.id.checkCold)
+        val check2_37 = view.find<CheckBox>(R.id.check2_37)
         val checkHot = view.find<CheckBox>(R.id.checkHot)
         val buttonLoad = view.find<Button>(R.id.buttonLoad)
         val buttonSave = view.find<Button>(R.id.buttonSave)
@@ -57,7 +53,6 @@ class SettingsPagerFragment : Fragment() {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 val num = p1 + minColdValue
                 seekBarProgress.text = num.toString()
-//                checkCold.text = context.getString(R.string.check_cold, num)
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) = Unit
@@ -75,14 +70,14 @@ class SettingsPagerFragment : Fragment() {
         }
 
         seekBar.max = 100 - minColdValue
-//        checkCold.isChecked = !SharedData.CHECK_COLD.getBoolean()
+        check2_37.isChecked = !SharedData.CHECK_2_37.getBoolean()
         checkHot.isChecked = !SharedData.CHECK_HOT.getBoolean()
-//
-//        checkCold.setOnCheckedChangeListener { _, isChecked ->
-//            SharedData.CHECK_COLD.saveBoolean(!isChecked)
-//            Counter.isViewCold = isChecked
-//            update()
-//        }
+
+        check2_37.setOnCheckedChangeListener { _, isChecked ->
+            SharedData.CHECK_2_37.saveBoolean(!isChecked)
+            Counter.isView2_37 = isChecked
+            update()
+        }
         checkHot.setOnCheckedChangeListener { _, isChecked ->
             SharedData.CHECK_HOT.saveBoolean(!isChecked)
             Counter.isViewHot = isChecked

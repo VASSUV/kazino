@@ -31,7 +31,7 @@ object Counter {
     val COUNT_HOT = 50
     var countNotP = SharedData.COUNT_NOT_P.getInt().let { if (it == 0) COUNT_HOT else it }
 
-    var isViewCold: Boolean = !SharedData.CHECK_COLD.getBoolean()
+    var isView2_37: Boolean = !SharedData.CHECK_2_37.getBoolean()
     var isViewHot: Boolean = !SharedData.CHECK_HOT.getBoolean()
 
     fun add(num: Int) {
@@ -49,7 +49,7 @@ object Counter {
 
         val arrayIndex = Array(37, { ArrayList<Int>() })
 
-        val countP = minOf(maxOf(countNotP, COUNT_HOT), list.size - 1)
+        val countP = minOf(maxOf(countNotP, COUNT_P*2), list.size - 1)
         val sizeList = list.size - 1
         for (i in 0..countP) {
             arrayIndex[list[sizeList - i]].add(i)
@@ -58,14 +58,24 @@ object Counter {
         arrayIndex.forEachIndexed { i, arrayList ->
             drawableResIdNums[i] = when (arrayList.size) {
                 0 -> {
-                    if (isViewCold && list.size > countNotP)
+                    if (list.size > countNotP)
                         R.drawable.blue_button
                     else
                         R.drawable.button
                 }
-                1,2 -> {
+                1 -> {
                     i1 = arrayList[0]
-                    if (isViewCold && i1 > countNotP)
+                    if (i1 > countNotP)
+                        R.drawable.blue_button
+                    else
+                        R.drawable.button
+                }
+                2 -> {
+                    i1 = arrayList[0]
+                    i2 = arrayList[1]
+                    if (isView2_37 && i1 < COUNT_P && i2 < i1 + COUNT_P) {
+                        R.drawable.yellow_button
+                    } else if (i1 > countNotP)
                         R.drawable.blue_button
                     else
                         R.drawable.button
@@ -80,9 +90,9 @@ object Counter {
 //                            println ("YELLOW{$i1,$i2,$i3}: $i на ${list.size} ходу")
                         }
                         R.drawable.orange_button
-//                    } else if (i1 < COUNT_P && i2 < i1 + COUNT_P && i3 > i1 + COUNT_P) {
-//                        R.drawable.yellow_button
-                    } else if (isViewCold && i1 > countNotP)
+                    } else if (isView2_37 && i1 < COUNT_P && i2 < i1 + COUNT_P && i3 > i1 + COUNT_P) {
+                        R.drawable.yellow_button
+                    } else if (i1 > countNotP)
                         R.drawable.blue_button
                     else
                         R.drawable.button
@@ -92,7 +102,7 @@ object Counter {
 //                    i2 = arrayList[1]
 //                    if (i1 < COUNT_P && i2 < i1 + COUNT_P) {
 //                        R.drawable.yellow_button
-//                    } else if (isViewCold && i1 > countNotP)
+//                    } else if (isView2_37 && i1 > countNotP)
 //                        R.drawable.blue_button
 //                    else
 //                        R.drawable.button
@@ -109,7 +119,7 @@ object Counter {
 //                        R.drawable.orange_button
 //                    } else if (i1 < COUNT_P && i2 < i1 + COUNT_P && i3 > i1 + COUNT_P) {
 //                        R.drawable.yellow_button
-//                    } else if (isViewCold && i1 > countNotP)
+//                    } else if (isView2_37 && i1 > countNotP)
 //                        R.drawable.blue_button
 //                    else
 //                        R.drawable.button
