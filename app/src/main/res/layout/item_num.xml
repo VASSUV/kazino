@@ -17,16 +17,24 @@
         android:layout_weight="1"
         android:minHeight="40dp"
         android:padding="1dp" />
-    <!--<TextView-->
-        <!--android:id="@+id/textView2"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textAlignment="center"-->
-        <!--android:textSize="12sp"/>-->
+    <TextView
+        android:id="@+id/textField1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="12sp"/>
+    <TextView
+        android:id="@+id/textField2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="12sp"/>
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
         android:textAlignment="center"
         android:textSize="12sp"
         android:scaleX="0.6"

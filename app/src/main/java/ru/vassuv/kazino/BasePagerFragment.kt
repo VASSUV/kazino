@@ -21,14 +21,12 @@ import android.widget.TextView
 import cn.nekocode.badge.BadgeDrawable
 import kotlinx.android.synthetic.main.table_base.*
 import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.async
 import kotlinx.coroutines.experimental.launch
 import org.jetbrains.anko.find
 import ru.vassuv.kazino.repository.Counter
 import ru.vassuv.kazino.repository.SharedData
-import java.io.File
 import java.util.*
 
 class BasePagerFragment : Fragment() {
@@ -120,7 +118,10 @@ class BasePagerFragment : Fragment() {
 
         for (i in 0..36) {
             val count = Counter.count(i)
-            textViewArray[i].background = context.resources.getDrawable(Counter.drawableResIdNums[i])
+            textViewArray[i].background = context.resources.getDrawable(
+                    if (Counter.drawableResIdNums[i] == R.drawable.orange_button && !Counter.isViewHot)
+                        if(count > Counter.countNotP) R.drawable.blue_button else R.drawable.button
+                    else Counter.drawableResIdNums[i])
             textViewArray[i].text = numberItemText(i, count.in0tes())
         }
 
@@ -214,9 +215,12 @@ class BasePagerFragment : Fragment() {
             holder.item.setBackgroundColor(if (position == 0) Color.GRAY else Color.parseColor("#737373"))
             val num = Counter.list[Counter.list.size - position - 1]
             if (Counter.listState[position] != R.drawable.button) {
-                val drawable = holder.item.context.resources.getDrawable(Counter.listState[position])
+                val resIdDrawable = Counter.listState[position]
+                val drawable = holder.item.context.resources.getDrawable(if (resIdDrawable == R.drawable.orange_button && !Counter.isViewHot) 0 else resIdDrawable)
                 holder.top.setImageDrawable(drawable)
-            } else holder.top.setImageDrawable(null)
+            } else {
+                holder.top.setImageDrawable(null)
+            }
             when (num) {
                 0 -> {
                     holder.textView.text = numSpannableArray[num]
@@ -230,9 +234,11 @@ class BasePagerFragment : Fragment() {
 
                 }
             }
+            val field1 = Counter.fieldList1[position] - (Counter.fieldList1.getOrNull(position + 1) ?: 0)
             val i35 = Counter.fieldList2[position] - (Counter.fieldList2.getOrNull(position + 1) ?: 0)
 
-//            holder.textView1.text = if (i35 > 0) i35.toString() else ""
+            holder.textField1.text = if (field1 != 0) field1.toString() else ""
+            holder.textField2.text = if (i35 > 0) i35.toString() else ""
             holder.textView3.text = (Counter.list.size - position).toString()
         }
 
@@ -243,7 +249,8 @@ class BasePagerFragment : Fragment() {
 
         class Holder(val item: View) : RecyclerView.ViewHolder(item) {
             val textView: TextView = item.find<TextView>(R.id.textView)
-            //            val textView1: TextView = item.find<TextView>(R.id.textView2)
+            val textField1: TextView = item.find<TextView>(R.id.textField1)
+            val textField2: TextView = item.find<TextView>(R.id.textField2)
             val textView3: TextView = item.find<TextView>(R.id.textView3)
             val top: ImageView = item.find<ImageView>(R.id.topIndicator)
         }

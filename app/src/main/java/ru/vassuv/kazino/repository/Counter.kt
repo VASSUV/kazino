@@ -36,7 +36,7 @@ object Counter {
 
     fun add(num: Int) {
         list.add(num)
-        listState.add(0,R.drawable.button)
+        listState.add(0, R.drawable.button)
         reCount(true, num)
         listState[0] = drawableResIdNums[num]
     }
@@ -49,7 +49,7 @@ object Counter {
 
         val arrayIndex = Array(37, { ArrayList<Int>() })
 
-        val countP = minOf(maxOf(countNotP, COUNT_P*2), list.size - 1)
+        val countP = minOf(maxOf(countNotP, COUNT_P * 2), list.size - 1)
         val sizeList = list.size - 1
         for (i in 0..countP) {
             arrayIndex[list[sizeList - i]].add(i)
@@ -84,46 +84,42 @@ object Counter {
                     i1 = arrayList[0]
                     i2 = arrayList[1]
                     i3 = arrayList[2]
-                    if (isViewHot && i3 < COUNT_HOT) {
-                        if (i == num && listState[i2] == R.drawable.yellow_button && i2 - i1 < countP) {
-                            countResetYellow++
-//                            println ("YELLOW{$i1,$i2,$i3}: $i на ${list.size} ходу")
-                        }
+                    if (i3 < COUNT_HOT) {
+//                        if (i == num && listState[i2] == R.drawable.yellow_button && i2 - i1 < countP) {
+//                            countResetYellow++
+//                        }
                         R.drawable.orange_button
-                    } else if (isView2_37 && i1 < COUNT_P && i2 < i1 + COUNT_P && i3 > i1 + COUNT_P) {
+                    } else if (isView2_37 && i1 < COUNT_P && i2 < i1 + COUNT_P && i3 > i2 + COUNT_P) {
                         R.drawable.yellow_button
                     } else if (i1 > countNotP)
                         R.drawable.blue_button
                     else
                         R.drawable.button
                 }
-//                2 -> {
-//                    i1 = arrayList[0]
-//                    i2 = arrayList[1]
-//                    if (i1 < COUNT_P && i2 < i1 + COUNT_P) {
-//                        R.drawable.yellow_button
-//                    } else if (isView2_37 && i1 > countNotP)
-//                        R.drawable.blue_button
-//                    else
-//                        R.drawable.button
-//                }
-//                else -> {
-//                    i1 = arrayList[0]
-//                    i2 = arrayList[1]
-//                    i3 = arrayList[2]
-//                    if (isViewHot && i3 < COUNT_HOT) {
-//                        if (i == num && listState[i2] == R.drawable.yellow_button && i2 - i1 < countP) {
-//                            countResetYellow++
-////                            println ("YELLOW{$i1,$i2,$i3}: $i на ${list.size} ходу")
-//                        }
-//                        R.drawable.orange_button
-//                    } else if (i1 < COUNT_P && i2 < i1 + COUNT_P && i3 > i1 + COUNT_P) {
-//                        R.drawable.yellow_button
-//                    } else if (isView2_37 && i1 > countNotP)
-//                        R.drawable.blue_button
-//                    else
-//                        R.drawable.button
-//                }
+            }
+            if (i == num) {
+                when (arrayList.size) {
+                    0, 1 -> {
+
+                    }
+                    2 -> {
+                        if (i2 - i1 < COUNT_P
+                                && drawableResIdNums[i] != R.drawable.yellow_button
+                                && listState[i2] == R.drawable.yellow_button) {
+                            countResetYellow++
+                        }
+                    }
+                    else -> {
+                        if (drawableResIdNums[i] != R.drawable.yellow_button) {
+                            if(listState[i2] == R.drawable.yellow_button) {
+                                if(i2 - i1 < COUNT_P && i3 - i2 < COUNT_P)
+                                    countResetYellow++
+                            } else if (listState[i3] == R.drawable.yellow_button && i3 - i1 > COUNT_P && i2 - i1 < COUNT_P){
+                                countResetYellow++
+                            }
+                        }
+                    }
+                }
             }
         }
 
