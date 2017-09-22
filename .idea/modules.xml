@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Kazino.iml" filepath="$PROJECT_DIR$/Kazino.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/chooseDir.iml" filepath="$PROJECT_DIR$/library/chooseDir.iml" />
       <module fileurl="file://$PROJECT_DIR$/dirchooser/dirchooser.iml" filepath="$PROJECT_DIR$/dirchooser/dirchooser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kazino.iml" filepath="$PROJECT_DIR$/kazino.iml" />
       <module fileurl="file://$PROJECT_DIR$/Android-DirectoryChooser/library/library.iml" filepath="$PROJECT_DIR$/Android-DirectoryChooser/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/Android-DirectoryChooser/sample/sample.iml" filepath="$PROJECT_DIR$/Android-DirectoryChooser/sample/sample.iml" />
     </modules>
