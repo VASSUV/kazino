@@ -2,11 +2,11 @@ package ru.vassuv.kazino
 
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.ViewPager.OnPageChangeListener
-import android.support.v7.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import androidx.appcompat.app.AppCompatActivity
 import android.text.TextUtils
 import android.text.TextUtils.*
 import android.view.View.*

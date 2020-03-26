@@ -2,8 +2,8 @@ package ru.vassuv.kazino
 
 import android.app.ProgressDialog
 import android.os.Bundle
-import android.support.annotation.Nullable
-import android.support.v4.app.Fragment
+import androidx.annotation.Nullable
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,14 +14,14 @@ import android.widget.TextView
 import com.codekidlabs.storagechooser.Content
 import com.codekidlabs.storagechooser.StorageChooser
 import kotlinx.android.synthetic.main.table_settings.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.jetbrains.anko.find
 import ru.vassuv.kazino.repository.Counter
 import ru.vassuv.kazino.repository.SharedData
 import kotlin.reflect.KFunction0
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.async
-import kotlinx.coroutines.experimental.launch
 import java.io.*
 import java.util.*
 
@@ -36,12 +36,12 @@ class SettingsPagerFragment : Fragment() {
     override
     fun onCreate(@Nullable savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageNumber = arguments.getInt(ARGUMENT_PAGE_NUMBER)
+        pageNumber = arguments?.getInt(ARGUMENT_PAGE_NUMBER) ?: 0
     }
 
     override
-    fun onCreateView(inflater: LayoutInflater?, @Nullable container: ViewGroup?, @Nullable savedInstanceState: Bundle?): View? {
-        val view = inflater?.inflate(R.layout.table_settings, null) as View
+    fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.table_settings, null)
         val seekBar = view.find<SeekBar>(R.id.seekBar)
         val seekBarProgress = view.find<TextView>(R.id.seekBarProgress)
         val check2_37 = view.find<CheckBox>(R.id.check2_37)
@@ -100,7 +100,7 @@ class SettingsPagerFragment : Fragment() {
 
             val chooser = StorageChooser.Builder()
                     .withActivity(activity)
-                    .withFragmentManager(activity.fragmentManager)
+                    .withFragmentManager(activity?.fragmentManager)
                     .withMemoryBar(false)
                     .allowCustomPath(true)
                     .actionSave(false)
@@ -129,7 +129,7 @@ class SettingsPagerFragment : Fragment() {
 
             val chooser = StorageChooser.Builder()
                     .withActivity(activity)
-                    .withFragmentManager(activity.fragmentManager)
+                    .withFragmentManager(activity?.fragmentManager)
                     .withMemoryBar(false)
                     .allowCustomPath(true)
                     .setType(StorageChooser.DIRECTORY_CHOOSER)
@@ -154,7 +154,7 @@ class SettingsPagerFragment : Fragment() {
         pd.isIndeterminate = true
         pd.setCancelable(false)
         pd.show()
-        async(CommonPool) {
+        GlobalScope.launch {
             val list = arrayListOf<Int>()
             val file = File(path)
             val scanner = Scanner(file)
@@ -167,7 +167,7 @@ class SettingsPagerFragment : Fragment() {
                 Counter.add(it)
             }
 
-            launch(UI) {
+            withContext(Dispatchers.Main) {
                 pd.dismiss()
                 updateTable()
             }
@@ -214,14 +214,14 @@ class SettingsPagerFragment : Fragment() {
         pd.setProgressStyle(ProgressDialog.STYLE_SPINNER)
         pd.isIndeterminate = true
         pd.show()
-        async(CommonPool) {
+        GlobalScope.launch {
             Counter.reset()
             pd.max = list.size
             list.forEach {
                 Counter.add(it)
             }
 
-            launch(UI) {
+            withContext(Dispatchers.Main) {
                 pd.dismiss()
                 updateTable()
             }

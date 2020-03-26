@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Kazino.iml" filepath="$PROJECT_DIR$/Kazino.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android-DirectoryChooser/library/Android-DirectoryChooser-library.iml" filepath="$PROJECT_DIR$/Android-DirectoryChooser/library/Android-DirectoryChooser-library.iml" group="kazino/library" />
+      <module fileurl="file://$PROJECT_DIR$/Android-DirectoryChooser/sample/Android-DirectoryChooser-sample.iml" filepath="$PROJECT_DIR$/Android-DirectoryChooser/sample/Android-DirectoryChooser-sample.iml" group="kazino/sample" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/chooseDir.iml" filepath="$PROJECT_DIR$/library/chooseDir.iml" />
       <module fileurl="file://$PROJECT_DIR$/dirchooser/dirchooser.iml" filepath="$PROJECT_DIR$/dirchooser/dirchooser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/git-kazino.iml" filepath="$PROJECT_DIR$/git-kazino.iml" group="kazino" />
+      <module fileurl="file://$PROJECT_DIR$/kazino.iml" filepath="$PROJECT_DIR$/kazino.iml" group="kazino" />
+      <module fileurl="file://$PROJECT_DIR$/app/kazino-app.iml" filepath="$PROJECT_DIR$/app/kazino-app.iml" group="kazino/app" />
+      <module fileurl="file://$PROJECT_DIR$/dirchooser/kazino-dirchooser.iml" filepath="$PROJECT_DIR$/dirchooser/kazino-dirchooser.iml" group="kazino/dirchooser" />
       <module fileurl="file://$PROJECT_DIR$/Android-DirectoryChooser/library/library.iml" filepath="$PROJECT_DIR$/Android-DirectoryChooser/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library-chooseDir.iml" filepath="$PROJECT_DIR$/library/library-chooseDir.iml" group="kazino/chooseDir" />
       <module fileurl="file://$PROJECT_DIR$/Android-DirectoryChooser/sample/sample.iml" filepath="$PROJECT_DIR$/Android-DirectoryChooser/sample/sample.iml" />
     </modules>
   </component>
